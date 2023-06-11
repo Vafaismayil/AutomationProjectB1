@@ -1,4 +1,4 @@
-package com.loop.test.day10_JSExecutor;
+package com.loop.test.day8_webtables_config;
 
 import com.loop.test.utilities.ConfigurationReader;
 import com.loop.test.utilities.Driver;

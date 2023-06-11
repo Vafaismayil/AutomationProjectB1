@@ -1,4 +1,4 @@
-package com.loop.test.day10_JSExecutor;
+package com.loop.test.day8_webtables_config;
 
 import com.loop.pages.LoopPracticeDragDropPage;
 import com.loop.test.utilities.Driver;
@@ -67,10 +67,44 @@ public class T3_drag_drop_pom {
     @Test
     public void test(){
         Driver.getDriver().get("https://loopcamp.vercel.app/drag-and-drop-circles.html");
+        LoopPracticeDragDropPage loopPracticeDragDropPage = new LoopPracticeDragDropPage();
+        actions.moveToElement(loopPracticeDragDropPage.smallCircle)
+                .clickAndHold()
+                .moveByOffset(100, 100)
+                .pause(2000)
+                .perform();
+        Assert.assertEquals(loopPracticeDragDropPage.bigCircle.getText(),"Drop here.");
+    }
+//    @Test
+//    public void now_drop(){
+//
+//            Driver.getDriver().get("https://loopcamp.vercel.app/drag-and-drop-circles.html");
+//        LoopPracticeDragDropPage loopPracticeDragDropPage1 = new LoopPracticeDragDropPage();
+//        actions.moveToElement(loopPracticeDragDropPage1.smallCircle)
+//                .clickAndHold()
+//                .moveByOffset(30,-150)
+//                .pause(100)
+//                .perform();
+//        Assert.assertEquals(loopPracticeDragDropPage1.bigCircle.getText(),"Now drop...");
 
 
+
+    @Test
+    public void try_again(){
+        LoopPracticeDragDropPage loopPracticeDragDropPage2 = new LoopPracticeDragDropPage();
+        actions.moveToElement(loopPracticeDragDropPage2.smallCircle)
+                .clickAndHold()
+                .moveToElement(loopPracticeDragDropPage2.smallCircle)
+                .moveByOffset(200,-300)
+                .release()
+                .pause(100)
+                .perform();
+        Assert.assertEquals(loopPracticeDragDropPage2.bigCircle.getText(),"Try again!");}
+
+//    @AfterClass
+//    public void tearDown(){
+//        Driver.closeDriver();
     }
 
 
 
-}
