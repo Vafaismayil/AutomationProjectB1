@@ -6,6 +6,9 @@ import java.io.FileInputStream;
 import java.util.Properties;
 
 public class ConfigurationReader {
+    /**
+
+     this class is design to read properties file and send data to source code*/
     private static Properties properties;
 
     static {

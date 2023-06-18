@@ -38,21 +38,22 @@ public class T3_drag_drop_pom {
     LoopPracticeDragDropPage loopPracticeDragDropPage;
     String actual;
     Actions actions;
+
     @Test
-    public void drag_small_here_test(){
+    public void drag_small_here_test() {
         Driver.getDriver().get("https://loopcamp.vercel.app/drag-and-drop-circles.html");
-      expected = "Drag the small circle here.";
-     loopPracticeDragDropPage = new LoopPracticeDragDropPage();
-       actual = loopPracticeDragDropPage.bigCircle.getText();
+        expected = "Drag the small circle here.";
+        loopPracticeDragDropPage = new LoopPracticeDragDropPage();
+        actual = loopPracticeDragDropPage.bigCircle.getText();
         Assert.assertEquals(actual, expected, "Actual does not match the expected");
     }
 
     @Test
-    public void practice_drag_drop_test(){
+    public void practice_drag_drop_test() {
         Driver.getDriver().get("https://loopcamp.vercel.app/drag-and-drop-circles.html");
         WebElement smallCircle = Driver.getDriver().findElement(By.id("draggable"));
         WebElement bigCircle = Driver.getDriver().findElement(By.id("droptarget"));
-       actions = new Actions(Driver.getDriver());
+        actions = new Actions(Driver.getDriver());
         actions.moveToElement(smallCircle)
                 .clickAndHold()
                 .moveToElement(bigCircle)
@@ -61,50 +62,52 @@ public class T3_drag_drop_pom {
 
         WebElement successMsg = Driver.getDriver().findElement(By.xpath("//div[contains(text(),'great')]"));
         actual = successMsg.getText();
-      expected = "You did great!";
-        Assert.assertEquals(actual, expected,"Actual does not match expected");
+        expected = "You did great!";
+        Assert.assertEquals(actual, expected, "Actual does not match expected");
     }
-    @Test
-    public void test(){
-        Driver.getDriver().get("https://loopcamp.vercel.app/drag-and-drop-circles.html");
-        LoopPracticeDragDropPage loopPracticeDragDropPage = new LoopPracticeDragDropPage();
-        actions.moveToElement(loopPracticeDragDropPage.smallCircle)
-                .clickAndHold()
-                .moveByOffset(100, 100)
-                .pause(2000)
-                .perform();
-        Assert.assertEquals(loopPracticeDragDropPage.bigCircle.getText(),"Drop here.");
-    }
+
 //    @Test
-//    public void now_drop(){
-//
-//            Driver.getDriver().get("https://loopcamp.vercel.app/drag-and-drop-circles.html");
-//        LoopPracticeDragDropPage loopPracticeDragDropPage1 = new LoopPracticeDragDropPage();
-//        actions.moveToElement(loopPracticeDragDropPage1.smallCircle)
+//    public void test() {
+//        Driver.getDriver().get("https://loopcamp.vercel.app/drag-and-drop-circles.html");
+//        LoopPracticeDragDropPage loopPracticeDragDropPage = new LoopPracticeDragDropPage();
+//        actions.moveToElement(loopPracticeDragDropPage.smallCircle)
 //                .clickAndHold()
-//                .moveByOffset(30,-150)
-//                .pause(100)
+//                .moveByOffset(100, 100)
+//                .pause(2000)
 //                .perform();
-//        Assert.assertEquals(loopPracticeDragDropPage1.bigCircle.getText(),"Now drop...");
-
-
+//        Assert.assertEquals(loopPracticeDragDropPage.bigCircle.getText(), "Drop here.");
+//    }
 
     @Test
-    public void try_again(){
-        LoopPracticeDragDropPage loopPracticeDragDropPage2 = new LoopPracticeDragDropPage();
-        actions.moveToElement(loopPracticeDragDropPage2.smallCircle)
+    public void now_drop() {
+
+        Driver.getDriver().get("https://loopcamp.vercel.app/drag-and-drop-circles.html");
+        LoopPracticeDragDropPage loopPracticeDragDropPage1 = new LoopPracticeDragDropPage();
+        actions.moveToElement(loopPracticeDragDropPage1.smallCircle)
                 .clickAndHold()
-                .moveToElement(loopPracticeDragDropPage2.smallCircle)
-                .moveByOffset(200,-300)
-                .release()
+                .moveByOffset(30, -150)
                 .pause(100)
                 .perform();
-        Assert.assertEquals(loopPracticeDragDropPage2.bigCircle.getText(),"Try again!");}
+        Assert.assertEquals(loopPracticeDragDropPage1.bigCircle.getText(), "Now drop...");
+
+//
+//        @Test
+//        public void try_again () {
+//            LoopPracticeDragDropPage loopPracticeDragDropPage2 = new LoopPracticeDragDropPage();
+//            actions.moveToElement(loopPracticeDragDropPage2.smallCircle)
+//                    .clickAndHold()
+//                    .moveToElement(loopPracticeDragDropPage2.smallCircle)
+//                    .moveByOffset(200, -300)
+//                    .release()
+//                    .pause(100)
+//                    .perform();
+//            Assert.assertEquals(loopPracticeDragDropPage2.bigCircle.getText(), "Try again!");
+//        }
 
 //    @AfterClass
 //    public void tearDown(){
 //        Driver.closeDriver();
     }
-
+}
 
 

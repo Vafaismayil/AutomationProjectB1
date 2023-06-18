@@ -5,6 +5,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.Set;
@@ -61,7 +62,7 @@ public class BrowserUtils {
 
 
 
-   public static void  scrollToElemnet(WebElement element){
+   public static void  scrollToElement(WebElement element){
       JavascriptExecutor js = (JavascriptExecutor )Driver.getDriver();
       js.executeScript("arguments[0[.scrollIntoView(true);",element);
    }
@@ -75,16 +76,14 @@ public class BrowserUtils {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoVie(true);", element);
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click;", element);
     }
-
     /**
-     * this method will double click any given element
+     * Performs double click action on an element
      * @param element
-     *
+     * @author nsh
      */
-//    public static  void doubleClick(WebElement element){
-//       new Actions(Driver.getDriver().(element) .perform();
-//    }
-
+    public static void doubleClick(WebElement element) {
+        new Actions(Driver.getDriver()).doubleClick(element).build().perform();
+    }
     /**
      * waits for providing element to be visible
      * @param element
@@ -96,7 +95,6 @@ public class BrowserUtils {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(),Duration.ofSeconds(timeToWaitSec));
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
-
     /**
      * Waits for the provided element to be invisible on the page
      * @param element

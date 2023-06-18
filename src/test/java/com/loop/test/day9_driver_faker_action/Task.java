@@ -27,4 +27,5 @@ public class Task {
        String actual = message.getText();
         Assert.assertEquals(actual,"Great! We've sent you an email to confirm your subscription.",message + "dosen't match");
     }
+
 }

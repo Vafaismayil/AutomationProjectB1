@@ -52,20 +52,9 @@ LoopPracticeDynamicLoading1 loopPracticeDynamicLoading1;
         loopPracticeDynamicLoading1.password.sendKeys(ConfigurationReader.getProperty("dynamicLoading.incorrectPassword"));
         loopPracticeDynamicLoading1.submitButton.click();
         Assert.assertTrue(loopPracticeDynamicLoading1.errorMassage.isDisplayed());}
-
-   public static void select(WebElement element,boolean check
-   ) {
-    if(check){
-        if(!element.isSelected())
-     element.click();
-    }else {
-        if(element.isSelected()){
-            element.click();
-        }
-
-    }
-   }
-
-
-
 }
+
+
+
+
+
